@@ -1,0 +1,28 @@
+{
+    "common": {
+        "glaven": "GLAVEN",
+        "creative_store": "Creative Store",
+        "premium_designs": "Premium Şüşə Dizaynları",
+        "high_quality": "YÜKSƏK KEYFİYYƏT",
+        "fast_delivery": "SÜRƏTLİ ÇATDIRILMA",
+        "no_products": "Bu kateqoriyada məhsul tapılmadı.",
+        "cart": "Səbət",
+        "open_cart": "Səbəti Aç",
+        "close_cart": "Səbəti Bağla",
+        "cart_empty": "Səbətiniz Boşdur",
+        "cart_empty_desc": "Mükəmməl dizaynı öz səbətinizdə görün.",
+        "back_to_shopping": "Alış-verişə Qayıt",
+        "total_amount": "Yekun Məbləğ",
+        "complete_order": "Sifarişi Tamamla",
+        "whatsapp_confirm": "Whatsapp ilə sürətli təsdiq",
+        "quantity": "Miqdar",
+        "price": "Qiymət",
+        "order_message_start": "*Salam, GLAVEN mağazanızdan sifariş etmək istəyirəm:*",
+        "order_item": "{index}. {name}\n   Miqdar: {quantity} ədəd\n   Qiymət: {price} ₼\n",
+        "order_total": "*YEKUN MƏBLƏĞ: {total} ₼*",
+        "order_confirm_ask": "Zəhmət olmasa sifarişimi təsdiq edə bilərsiniz?",
+        "footer_desc": "Premium şüşə içki dəstləri və stəkanlar. Sifarişləriniz WhatsApp vasitəsilə təhlükəsiz şəkildə qəbul edilir.",
+        "contact": "Əlaqə",
+        "add_to_cart": "Səbətə Əlavə Et"
+    }
+}

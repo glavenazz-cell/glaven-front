@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ShoppingBag } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
+import { useLanguageStore } from '../store/useLanguageStore';
 
 const ProductCard = ({ product }) => {
   const { addToCart, items } = useCartStore();
+  const { t } = useLanguageStore();
   const [clicked, setClicked] = useState(false);
 
   const handleAddToCart = (e) => {
@@ -45,7 +47,7 @@ const ProductCard = ({ product }) => {
         <button
           onClick={handleAddToCart}
           className={`absolute bottom-2 right-2 md:bottom-3 md:right-3 w-10 md:w-12 h-10 md:h-12 border rounded-full ${inCart ? 'bg-[#332c54] text-white border-[#332c54]' : 'bg-white text-[#332c54] border-[#332c54] hover:bg-[#332c54] hover:text-white hover:border-[#332c54]'} flex items-center justify-center transition-colors shadow-sm`}
-          aria-label="Səbətə Əlavə Et"
+          aria-label={t('common.add_to_cart')}
         >
           {qty > 0 && <span className="absolute -top-1.5 -left-1.5 bg-[#332c54] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold font-mono border-2 border-white z-10">{qty}</span>}
           <ShoppingBag size={18} strokeWidth={1.5} className="md:w-5 md:h-5" />
@@ -75,3 +77,4 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+

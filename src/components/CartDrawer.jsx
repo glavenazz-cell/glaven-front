@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { X, Trash2, Plus, Minus, MessageCircle, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
+import { useLanguageStore } from '../store/useLanguageStore';
 
 const CartDrawer = () => {
     const { items, isCartOpen, toggleCart, updateQuantity, removeFromCart } = useCartStore();
+    const { t, language } = useLanguageStore();
     const [isAnimating, setIsAnimating] = useState(false);
 
     const total = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
@@ -24,16 +26,21 @@ const CartDrawer = () => {
     const handleWhatsAppCheckout = () => {
         if (items.length === 0) return;
 
-        let message = `*Salam, GLAVEN mağazanızdan sifariş etmək istəyirəm:*\n\n`;
+        let message = t('common.order_message_start') + '\n\n';
 
         items.forEach((item, index) => {
-            message += `${index + 1}. ${item.name}\n`;
-            message += `   Miqdar: ${item.quantity} ədəd\n`;
-            message += `   Qiymət: ${(item.price * item.quantity).toLocaleString('az-AZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₼\n\n`;
+            message += t('common.order_item', {
+                index: index + 1,
+                name: item.name,
+                quantity: item.quantity,
+                price: (item.price * item.quantity).toLocaleString('az-AZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+            }) + '\n';
         });
 
-        message += `*YEKUN MƏBLƏĞ: ${total.toLocaleString('az-AZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₼*\n\n`;
-        message += `Zəhmət olmasa sifarişimi təsdiq edə bilərsiniz?`;
+        message += t('common.order_total', {
+            total: total.toLocaleString('az-AZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+        }) + '\n\n';
+        message += t('common.order_confirm_ask');
 
         // API endpoint for +994702400150
         const whatsappUrl = `https://wa.me/994702400150?text=${encodeURIComponent(message)}`;
@@ -59,7 +66,7 @@ const CartDrawer = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 bg-white">
                     <div className="flex items-center gap-2">
-                        <h2 className="text-lg font-black text-[#332c54] tracking-tighter uppercase">Səbət</h2>
+                        <h2 className="text-lg font-black text-[#332c54] tracking-tighter uppercase">{t('common.cart')}</h2>
                         <span className="bg-[#332c54] text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono border border-transparent">
                             {totalItems}
                         </span>
@@ -67,7 +74,7 @@ const CartDrawer = () => {
                     <button
                         onClick={toggleCart}
                         className="p-1.5 text-gray-500 border border-transparent hover:border-gray-200 hover:text-[#332c54] transition-colors bg-white rounded-md"
-                        aria-label="Səbəti Bağla"
+                        aria-label={t('common.close_cart')}
                     >
                         <X size={20} strokeWidth={1.5} />
                     </button>
@@ -81,14 +88,14 @@ const CartDrawer = () => {
                                 <ShoppingBag size={32} strokeWidth={1} />
                             </div>
                             <div>
-                                <p className="text-sm font-black text-[#332c54] tracking-widest uppercase">Səbətiniz Boşdur</p>
-                                <p className="text-gray-500 mt-2 text-xs">Mükəmməl dizaynı öz səbətinizdə görün.</p>
+                                <p className="text-sm font-black text-[#332c54] tracking-widest uppercase">{t('common.cart_empty')}</p>
+                                <p className="text-gray-500 mt-2 text-xs">{t('common.cart_empty_desc')}</p>
                             </div>
                             <button
                                 onClick={toggleCart}
                                 className="mt-4 px-6 py-2.5 bg-[#332c54] text-white rounded-md text-[11px] font-black uppercase tracking-widest border border-[#332c54] hover:bg-white hover:text-[#332c54] transition-colors"
                             >
-                                Alış-verişə Qayıt
+                                {t('common.back_to_shopping')}
                             </button>
                         </div>
                     ) : (
@@ -147,7 +154,7 @@ const CartDrawer = () => {
                 {items.length > 0 && (
                     <div className="border-t border-gray-200 bg-white p-5 pb-6">
                         <div className="flex justify-between items-center mb-5 pb-4 border-b border-gray-100">
-                            <span className="text-gray-500 font-bold text-xs uppercase tracking-widest">Yekun Məbləğ</span>
+                            <span className="text-gray-500 font-bold text-xs uppercase tracking-widest">{t('common.total_amount')}</span>
                             <span className="text-xl font-black text-[#332c54] tracking-tighter">{total.toLocaleString('az-AZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₼</span>
                         </div>
 
@@ -156,11 +163,11 @@ const CartDrawer = () => {
                             className="w-full bg-[#332c54] rounded-xl text-white py-4 px-4 flex items-center justify-center gap-3 border border-transparent hover:bg-white hover:text-[#332c54] hover:border-[#332c54] transition-colors group relative overflow-hidden shadow-sm"
                         >
                             <MessageCircle size={18} strokeWidth={1.5} />
-                            <span className="text-[12px] font-black uppercase tracking-widest">Sifarişi Tamamla</span>
+                            <span className="text-[12px] font-black uppercase tracking-widest">{t('common.complete_order')}</span>
                         </button>
                         <p className="text-center text-[10px] font-medium text-gray-500 mt-3 flex items-center justify-center gap-1.5 uppercase tracking-widest">
                             <span className="w-1 h-1 bg-[#332c54] rounded-full block animate-ping"></span>
-                            Whatsapp ilə sürətli təsdiq
+                            {t('common.whatsapp_confirm')}
                         </p>
                     </div>
                 )}
@@ -170,3 +177,4 @@ const CartDrawer = () => {
 };
 
 export default CartDrawer;
+

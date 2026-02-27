@@ -1,0 +1,28 @@
+{
+    "common": {
+        "glaven": "GLAVEN",
+        "creative_store": "Creative Store",
+        "premium_designs": "Premium Glass Designs",
+        "high_quality": "HIGH QUALITY",
+        "fast_delivery": "FAST DELIVERY",
+        "no_products": "No products found in this category.",
+        "cart": "Cart",
+        "open_cart": "Open Cart",
+        "close_cart": "Close Cart",
+        "cart_empty": "Your Cart is Empty",
+        "cart_empty_desc": "See the perfect design in your cart.",
+        "back_to_shopping": "Back to Shopping",
+        "total_amount": "Total Amount",
+        "complete_order": "Complete Order",
+        "whatsapp_confirm": "Fast confirmation via Whatsapp",
+        "quantity": "Quantity",
+        "price": "Price",
+        "order_message_start": "*Hello, I would like to order from GLAVEN store:*",
+        "order_item": "{index}. {name}\n   Quantity: {quantity} pcs\n   Price: {price} ₼\n",
+        "order_total": "*TOTAL AMOUNT: {total} ₼*",
+        "order_confirm_ask": "Could you please confirm my order?",
+        "footer_desc": "Premium glass drinkware sets and glasses. Your orders are securely accepted via WhatsApp.",
+        "contact": "Contact",
+        "add_to_cart": "Add to Cart"
+    }
+}

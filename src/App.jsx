@@ -4,8 +4,11 @@ import ProductCard from './components/ProductCard';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import { products } from './data/products';
+import { useLanguageStore } from './store/useLanguageStore';
 
 function App() {
+  const { t } = useLanguageStore();
+
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-[#332c54] selection:text-white">
       <Navbar />
@@ -19,19 +22,19 @@ function App() {
 
             <div className="relative z-10 flex flex-col items-center px-4">
               <h1 className="text-4xl md:text-6xl font-black text-[#332c54] tracking-tighter mb-2 uppercase flex flex-col items-center">
-                GLAVEN
-                <span className="font-semibold text-[10px] md:text-xs tracking-[0.3em] mt-2 text-[#332c54] uppercase">Creative Store</span>
+                {t('common.glaven')}
+                <span className="font-semibold text-[10px] md:text-xs tracking-[0.3em] mt-2 text-[#332c54] uppercase">{t('common.creative_store')}</span>
               </h1>
               <p className="text-sm md:text-base text-gray-500 max-w-md mx-auto font-mono mb-8 mt-4 uppercase tracking-widest border-b border-gray-200 pb-4">
-                Premium Şüşə Dizaynları
+                {t('common.premium_designs')}
               </p>
 
               <div className="flex flex-wrap justify-center gap-2 max-w-xs mx-auto md:max-w-none">
                 <div className="flex items-center gap-1.5 bg-[#332c54] py-1.5 px-3 border border-[#332c54] text-white rounded-md">
-                  <span className="text-[10px] font-black tracking-widest uppercase">YÜKSƏK KEYFİYYƏT</span>
+                  <span className="text-[10px] font-black tracking-widest uppercase">{t('common.high_quality')}</span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white py-1.5 px-3 border border-[#332c54] text-[#332c54] rounded-md">
-                  <span className="text-[10px] font-black tracking-widest uppercase">SÜRƏTLİ ÇATDIRILMA</span>
+                  <span className="text-[10px] font-black tracking-widest uppercase">{t('common.fast_delivery')}</span>
                 </div>
               </div>
             </div>
@@ -42,7 +45,7 @@ function App() {
         <section id="collection" className="px-4 sm:px-6 max-w-7xl mx-auto min-h-[50vh]">
           {products.length === 0 ? (
             <div className="text-center py-20 border border-gray-200">
-              <p className="text-gray-500 font-mono uppercase tracking-widest text-xs">Bu kateqoriyada məhsul tapılmadı.</p>
+              <p className="text-gray-500 font-mono uppercase tracking-widest text-xs">{t('common.no_products')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-l border-gray-200 bg-white">

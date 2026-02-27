@@ -1,0 +1,28 @@
+{
+    "common": {
+        "glaven": "GLAVEN",
+        "creative_store": "Creative Store",
+        "premium_designs": "Премиум Стеклянные Дизайны",
+        "high_quality": "ВЫСОКОЕ КАЧЕСТВО",
+        "fast_delivery": "БЫСТРАЯ ДОСТАВКА",
+        "no_products": "В этой категории товаров не найдено.",
+        "cart": "Корзина",
+        "open_cart": "Открыть Корзину",
+        "close_cart": "Закрыть Корзину",
+        "cart_empty": "Ваша корзина пуста",
+        "cart_empty_desc": "Увидьте идеальный дизайн в своей корзине.",
+        "back_to_shopping": "Вернуться к покупкам",
+        "total_amount": "Итоговая сумма",
+        "complete_order": "Завершить заказ",
+        "whatsapp_confirm": "Быстрое подтверждение через Whatsapp",
+        "quantity": "Количество",
+        "price": "Цена",
+        "order_message_start": "*Здравствуйте, я хочу заказать в магазине GLAVEN:*",
+        "order_item": "{index}. {name}\n   Количество: {quantity} шт.\n   Цена: {price} ₼\n",
+        "order_total": "*ИТОГОВАЯ СУММА: {total} ₼*",
+        "order_confirm_ask": "Не могли бы вы подтвердить мой заказ?",
+        "footer_desc": "Наборы стеклянной посуды премиум-класса. Ваши заказы надежно принимаются через WhatsApp.",
+        "contact": "Контакт",
+        "add_to_cart": "Добавить в корзину"
+    }
+}
