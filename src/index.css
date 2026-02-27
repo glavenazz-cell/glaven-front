@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+}
+
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.glass-dark {
+  @apply bg-gray-900/80 backdrop-blur-md border border-gray-700/50 shadow-xl;
+}
